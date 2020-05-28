@@ -30,7 +30,7 @@ services:
       - wpsite
   apache:
     container_name: apache
-    image: php:7.2-apache
+    build: .
     restart: always
     volumes: ['./www:/var/www/html']
     ports:
