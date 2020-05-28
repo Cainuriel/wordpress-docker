@@ -28,6 +28,15 @@ services:
       MYSQL_ROOT_PASSWORD: password 
     networks:
       - wpsite
+  apache:
+    container_name: apache
+    image: php:7.2-apache
+    restart: always
+    volumes: ['./www:/var/www/html']
+    ports:
+      - '8080:80'
+    networks:
+      - wpsite
 
 networks:
   wpsite:
