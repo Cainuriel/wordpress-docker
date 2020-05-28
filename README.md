@@ -1,6 +1,6 @@
 # wordpress-docker
 
-Wordpress desplegat a Docker. Versió manual, amb el servidor web basat en la imatge `php`.
+Wordpress desplegat a Docker. Versió "automàtica", amb el servidor web basat en la imatge `wordpress`.
 
 Per posar en marxa:
 ```

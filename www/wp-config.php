@@ -20,22 +20,22 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', 'wordpress');
 
 /** MySQL database username */
-define( 'DB_USER', 'wordpress' );
+define( 'DB_USER', 'wordpress');
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'wordpress' );
+define( 'DB_PASSWORD', 'wordpress');
 
 /** MySQL hostname */
-define( 'DB_HOST', 'db' );
+define( 'DB_HOST', 'db:3306');
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+define( 'DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define( 'DB_COLLATE', '');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'Oa<cGTa0[M&ZowVDipu,{$+ 6fWFSRuD#w,>=sV.+UcLqWn{AW,rN=fR .$=Z!}V' );
-define( 'SECURE_AUTH_KEY',  '|$n,W@p]y#zXVtyqS:_Hi4o88c^g!e4Azp]Fu^:~6_cctc[}`,BlDDU;<m1AujmQ' );
-define( 'LOGGED_IN_KEY',    '+Pr8^K__Eg/{RyL)>SQmKZf,pG9xy.3pt^Ty|rl&.K!O_*7RP<nbnQK*&Y(ZZLg(' );
-define( 'NONCE_KEY',        'CRGDf)%0^t+`W/8RI,v;L[`4,A4| i;XLh:A`P,,y_7p^1@w.MH$9R>~B9v>xFW)' );
-define( 'AUTH_SALT',        '(:T{`O,?ZH1/ZYU?Ud--b1<&o_Y*<9-r)@,]lg~V8T@UVOUe?Z~&605,, ov/6a$' );
-define( 'SECURE_AUTH_SALT', '+SEE$:ID8PVAxD)oq&xHU* mU.udS M?VZEz]u]~lwelLsUR>VBoaij S:|>@Q4x' );
-define( 'LOGGED_IN_SALT',   'S/h&}VW9F9gud56>Qhb0Zg6+.IZZ.7|gdL3bY`8`?9s9a`y%LXc:Lr2Gh[en;-`[' );
-define( 'NONCE_SALT',       'ZI}=#O-|P??YwACk^6Zf&v{8+eGj +o1<Iypeh#:t*[)(8X_bkAtWpg/SAe^= n;' );
+define( 'AUTH_KEY',         'fc01f691ff91f2bfa1c710666b9a487818daf9bd');
+define( 'SECURE_AUTH_KEY',  '9c2b2ae2e4745529254fcbafb353485119221b50');
+define( 'LOGGED_IN_KEY',    '124a89992670da462296384bc35cd8ce51be2fd4');
+define( 'NONCE_KEY',        'c2ffcc5179e00fa198b1e4a25403b87c6ee22e0e');
+define( 'AUTH_SALT',        'c76564d2636ff08f761b43a382ab396e511e150e');
+define( 'SECURE_AUTH_SALT', 'feb1a62ebd1bb759aa4ca28c30fa03ac2b7b33e8');
+define( 'LOGGED_IN_SALT',   'b6a246b1c1c4a5c434bff29b5b7b71ea7eb57294');
+define( 'NONCE_SALT',       '98453055ec5c7ecb0ee2cf5b78b1ce01382f06d6');
 
 /**#@-*/
 
@@ -78,6 +78,12 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+
+// If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
+// see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+	$_SERVER['HTTPS'] = 'on';
+}
 
 /* That's all, stop editing! Happy publishing. */
 
